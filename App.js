@@ -32,7 +32,7 @@ const App = () => {
  };
 
  useEffect(() => {
-    console.log('123');
+  
     getAPIData();
  }, []);
 
