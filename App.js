@@ -72,9 +72,11 @@ const App = () => {
               onPress={sortedData}
             />
             {sorted && (
+              <View style={{marginTop:10}}>
               <Button title='Previous Order'
                 onPress={previousData}
               />
+              </View>
             )}
           </View>
 
