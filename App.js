@@ -13,7 +13,7 @@ import {
 const App = () => {
  const [data, setData] = useState([]);
  const [search, setSearch] = useState('');
-  
+ const [sorted, setSorted] = useState(false);
 
  const getAPIData = async () => {
     const url = 'https://jsonplaceholder.org/posts';
@@ -29,10 +29,16 @@ const App = () => {
  const sortedData = () => {
     let list = data.sort((a, b) => a.title > b.title ? 1 : -1);
     setData(list);
+    setSorted(!sorted);
+ };
+
+ const previousData = () => {
+    let list = data.sort((a, b) => a.id > b.id ? 1 : -1);
+    setData(list);
+    setSorted(!sorted);
  };
 
  useEffect(() => {
-  
     getAPIData();
  }, []);
 
@@ -65,6 +71,11 @@ const App = () => {
             <Button title='Sort'
               onPress={sortedData}
             />
+            {sorted && (
+              <Button title='Previous Order'
+                onPress={previousData}
+              />
+            )}
           </View>
 
           <View>
