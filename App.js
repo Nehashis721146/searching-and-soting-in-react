@@ -51,7 +51,7 @@ const App = () => {
  );
 
  const filteredData = data.filter((item) =>
-    item.title.toLowerCase().includes(search.toLowerCase())
+        item.title.toLowerCase().includes(search.toLowerCase()) ||  item.id.toString().includes(search) ||  item.slug.toLowerCase().includes(search.toLowerCase()) 
  );
 
  return (
